@@ -1,0 +1,24 @@
+.container__todoitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 98%;
+  max-width: 490px;
+  background-color: #ddd;
+  margin: 0.2rem;
+  border-radius: 5px;
+
+  &__list {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin: 0.4rem 0rem;
+
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+}

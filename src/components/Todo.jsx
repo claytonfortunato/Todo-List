@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 import "./Todo.scss";
+import TodoItem from "./TodoItem";
 
 const Todos = () => {
   const [todo, setTodo] = useState("");
@@ -43,7 +44,7 @@ const Todos = () => {
           <option value="Completed">Completed</option>
         </select>
       </div>
-
+      <TodoItem />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={openModal}
