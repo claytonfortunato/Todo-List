@@ -12,18 +12,20 @@ import "./TodoItem.scss";
 const TodoItem = () => {
   return (
     <div className="container__todoitem">
-      <div className="container__todoitem__list">
-        <div className="container__todoitem__list__tasks">
-          <MdCheckBoxOutlineBlank size={20} />
-          <MdCheckBox size={20} />
+      <div className="container__todoitem__task">
+        <div className="container__todoitem__task__list">
+          <div className="container__todoitem__task__list__check">
+            <MdCheckBoxOutlineBlank size={26} />
+            {/* <MdCheckBox size={30} /> */}
+          </div>
+          <div className="container__todoitem__task__list__tasks">
+            <p>Estudar Javascript</p>
+            <small>3:33 AM, 01/01/2023</small>
+          </div>
         </div>
-        <div>
-          <p>Estudar Javascript</p>
-          <p>Data</p>
-        </div>
-        <div className="container__todoitem__icon">
-          <MdDelete size={20} />
-          <MdModeEditOutline size={20} />
+        <div className="container__todoitem__task__list__icon">
+          <MdDelete size={22} />
+          <MdModeEditOutline size={22} />
         </div>
       </div>
     </div>

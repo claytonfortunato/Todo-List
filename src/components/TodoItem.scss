@@ -1,24 +1,41 @@
 .container__todoitem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 98%;
+  width: 100%;
   max-width: 490px;
   background-color: #ddd;
   margin: 0.2rem;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &__list {
+  &__task {
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #fff;
-    margin: 0.4rem 0rem;
+    margin: 0.6rem 0rem;
+    border-radius: 5px;
 
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
+    &__list {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin: 0.6rem;
+
+      &__tasks {
+        line-height: 16px;
+      }
+
+      &__icon {
+        display: flex;
+
+        svg {
+          margin: 0rem 0.3rem;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
