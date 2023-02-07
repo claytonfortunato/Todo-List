@@ -15,8 +15,17 @@ const Todos = () => {
   const [todo, setTodo] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const handleChange = (e) => {
-    setTodo(e.targte.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let date = new Date();
+    let time = date.getTime();
+    let todoObj = {
+      id: time,
+      todo: todo,
+      completed: false,
+    };
+    setTodoValue("");
+    dispatch(addTaskToList(todoObj));
   };
 
   const openModal = () => {
@@ -61,11 +70,15 @@ const Todos = () => {
         style={customStyles}
         onAfterOpen={afterOpenModal}
       >
-        <form className="container__modal">
+        <form className="container__modal" onSubmit={handleSubmit}>
           <h1>Adicionar Tarefa</h1>
           <div className="container__modal__title">
             <h4>Title</h4>
-            <input type="text" />
+            <input
+              type="text"
+              value={todo}
+              onChange={(e) => setTodo(e.target.value)}
+            />
           </div>
           <div className="container__modal__status">
             <h4>Status</h4>
@@ -75,10 +88,7 @@ const Todos = () => {
             </select>
           </div>
           <div className="container__modal__button">
-            <button
-              className="container__modal__button__add"
-              onClick={handleTaskClick}
-            >
+            <button className="container__modal__button__add" type="submit">
               Adicionar
             </button>
             <button className="container__modal__button__cancel">

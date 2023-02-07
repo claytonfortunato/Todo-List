@@ -14,7 +14,6 @@ import "./TodoItem.scss";
 
 const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();
-  console.log(todo);
 
   const [cheked, isCheked] = useState(false);
 
