@@ -24,7 +24,7 @@ const TodoItem = () => {
           </div>
         </div>
         <div className="container__todoitem__task__list__icon">
-          <MdDelete size={22} />
+          <MdDelete size={22} color="red" />
           <MdModeEditOutline size={22} />
         </div>
       </div>
