@@ -12,9 +12,9 @@ import {
 
 import "./TodoItem.scss";
 
-const TodoItem = ({ todos }) => {
+const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();
-  console.log(todos);
+  console.log(todo);
 
   const [cheked, isCheked] = useState(false);
 
@@ -27,19 +27,20 @@ const TodoItem = ({ todos }) => {
       <div className="container__todoitem__task">
         <div className="container__todoitem__task__list">
           <div className="container__todoitem__task__list__check">
-            {todos ? (
+            {/* {todo ? (
               <MdCheckBoxOutlineBlank size={26} />
             ) : (
               <MdCheckBox size={26} />
-            )}
+            )} */}
+            <input type="checkbox" />
           </div>
           <div className="container__todoitem__task__list__tasks">
             <p
-              style={
-                todos.completed === true
-                  ? { textDecoration: "line-through" }
-                  : { textDecoration: "none" }
-              }
+            // style={
+            //   todo.completed === true
+            //     ? { textDecoration: "line-through" }
+            //     : { textDecoration: "none" }
+            // }
             >
               Estudar Javascript
             </p>

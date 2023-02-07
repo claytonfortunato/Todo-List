@@ -27,9 +27,9 @@ const Todos = () => {
     content: {
       top: "50%",
       left: "50%",
-      marginRight: "-20%",
       transform: "translate(-50%, -50%)",
       transition: "500ms",
+      maxWidth: "500px",
     },
   };
 
@@ -44,7 +44,6 @@ const Todos = () => {
 
   return (
     <div className="container__todo">
-      <h1 className="container__todo__title">Lista de Tarefas</h1>
       <div className="container__todo__button">
         <button className="container__todo__button__left" onClick={openModal}>
           Adicionar Tarefa
@@ -55,7 +54,7 @@ const Todos = () => {
           <option value="Completed">Completed</option>
         </select>
       </div>
-      <TodoItem />
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={openModal}

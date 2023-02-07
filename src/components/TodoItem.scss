@@ -1,12 +1,8 @@
 .container__todoitem {
   width: 100%;
-  max-width: 490px;
-  background-color: #ddd;
+  max-width: 600px;
   margin: 0.2rem;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &__task {
     width: 100%;
@@ -26,10 +22,6 @@
 
       &__tasks {
         line-height: 16px;
-
-        p {
-          text-decoration: line-through;
-        }
       }
 
       &__icon {
