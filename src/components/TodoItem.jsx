@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   MdModeEditOutline,
@@ -9,14 +9,19 @@ import {
 
 import "./TodoItem.scss";
 
-const TodoItem = () => {
+const TodoItem = ({ todo }) => {
+  const [cheked, isCheked] = useState(false);
+
   return (
     <div className="container__todoitem">
       <div className="container__todoitem__task">
         <div className="container__todoitem__task__list">
           <div className="container__todoitem__task__list__check">
-            <MdCheckBoxOutlineBlank size={26} />
-            {/* <MdCheckBox size={30} /> */}
+            {todo ? (
+              <MdCheckBoxOutlineBlank size={26} />
+            ) : (
+              <MdCheckBox size={26} />
+            )}
           </div>
           <div className="container__todoitem__task__list__tasks">
             <p>Estudar Javascript</p>

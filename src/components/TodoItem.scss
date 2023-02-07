@@ -26,6 +26,10 @@
 
       &__tasks {
         line-height: 16px;
+
+        p {
+          text-decoration: line-through;
+        }
       }
 
       &__icon {

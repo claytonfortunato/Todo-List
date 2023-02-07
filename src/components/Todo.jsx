@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 import TodoItem from "./TodoItem";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./Todo.scss";
 import "./Modal.scss";
+import { addTaskToList } from "../redux/task/actions";
 
 const Todos = () => {
-  const { todos } = useSelector((state) => state);
+  const { taskReducer } = useSelector((rootReducer) => rootReducer.taskReducer);
+  const dispatch = useDispatch();
 
   const [todo, setTodo] = useState("");
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -36,6 +38,10 @@ const Todos = () => {
     subtitle.style.color = "#f00";
   }
 
+  const handleTaskClick = () => {
+    dispatch(addTaskToList(TodoItem));
+  };
+
   return (
     <div className="container__todo">
       <h1 className="container__todo__title">Lista de Tarefas</h1>
@@ -49,16 +55,17 @@ const Todos = () => {
           <option value="Completed">Completed</option>
         </select>
       </div>
-      {todos.length ? todos.map(todo => (
-        <TodoItem />
-      )) : não tem!}
+      {taskReducer.map((list) => (
+        <TodoItem key={list.id} list={list} />
+      ))}
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={openModal}
         style={customStyles}
         onAfterOpen={afterOpenModal}
       >
-        <div className="container__modal">
+        <form className="container__modal">
           <h1>Adicionar Tarefa</h1>
           <div className="container__modal__title">
             <h4>Title</h4>
@@ -72,12 +79,17 @@ const Todos = () => {
             </select>
           </div>
           <div className="container__modal__button">
-            <button className="container__modal__button__add">Adicionar</button>
+            <button
+              className="container__modal__button__add"
+              onClick={handleTaskClick}
+            >
+              Adicionar
+            </button>
             <button className="container__modal__button__cancel">
               Cancelar
             </button>
           </div>
-        </div>
+        </form>
       </Modal>
     </div>
   );
