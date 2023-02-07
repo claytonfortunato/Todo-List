@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 import TodoItem from "./TodoItem";
+import { useSelector } from "react-redux";
 
 import "./Todo.scss";
 import "./Modal.scss";
 
 const Todos = () => {
+  const { todos } = useSelector((state) => state);
+
   const [todo, setTodo] = useState("");
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -46,7 +49,9 @@ const Todos = () => {
           <option value="Completed">Completed</option>
         </select>
       </div>
-      <TodoItem />
+      {todos.length ? todos.map(todo => (
+        <TodoItem />
+      )) : não tem!}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={openModal}
