@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-import "./Todo.scss";
 import TodoItem from "./TodoItem";
+
+import "./Todo.scss";
+import "./Modal.scss";
 
 const Todos = () => {
   const [todo, setTodo] = useState("");
@@ -52,8 +54,24 @@ const Todos = () => {
         onAfterOpen={afterOpenModal}
       >
         <div className="container__modal">
-          <h4>Title</h4>
-          <input type="text" />
+          <h1>Adicionar Tarefa</h1>
+          <div className="container__modal__title">
+            <h4>Title</h4>
+            <input type="text" />
+          </div>
+          <div className="container__modal__status">
+            <h4>Status</h4>
+            <select>
+              <option value="Incompleted">Incompleto</option>
+              <option value="completed">Completo</option>
+            </select>
+          </div>
+          <div className="container__modal__button">
+            <button className="container__modal__button__add">Adicionar</button>
+            <button className="container__modal__button__cancel">
+              Cancelar
+            </button>
+          </div>
         </div>
       </Modal>
     </div>

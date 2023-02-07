@@ -1,0 +1,28 @@
+.container__modal {
+  width: 100%;
+
+  h1 {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__title {
+    input {
+      width: 100%;
+      padding: 14px;
+      background-color: #ddd;
+      border: none;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__status {
+    select {
+      width: 100%;
+      padding: 14px;
+      background-color: #ddd;
+      border: none;
+      font-size: 1rem;
+    }
+  }
+}

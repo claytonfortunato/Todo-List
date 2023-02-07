@@ -9,7 +9,7 @@
   align-items: center;
 
   &__task {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -32,8 +32,12 @@
         display: flex;
 
         svg {
-          margin: 0rem 0.3rem;
+          margin: 0rem 0.4rem;
           cursor: pointer;
+          background-color: #ddd;
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
         }
       }
     }
