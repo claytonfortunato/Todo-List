@@ -9,11 +9,11 @@ import "./Modal.scss";
 import { addTaskToList } from "../redux/task/actions";
 
 const Todos = () => {
-  const { taskReducer } = useSelector((rootReducer) => rootReducer.taskReducer);
+  const { todos } = useSelector((rootReducer) => rootReducer.taskReducer);
   const dispatch = useDispatch();
 
   const [todo, setTodo] = useState("");
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const handleChange = (e) => {
     setTodo(e.targte.value);
@@ -55,10 +55,7 @@ const Todos = () => {
           <option value="Completed">Completed</option>
         </select>
       </div>
-      {taskReducer.map((list) => (
-        <TodoItem key={list.id} list={list} />
-      ))}
-
+      <TodoItem />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={openModal}
