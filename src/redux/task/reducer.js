@@ -6,6 +6,9 @@ const initialState = {
 
 const taskReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TaskActionTypes.ADD_TASK:
+    default:
+      return state;
   }
 };
+
+export default taskReducer;
