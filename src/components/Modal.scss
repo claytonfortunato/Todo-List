@@ -4,9 +4,12 @@
   h1 {
     text-transform: uppercase;
     text-align: center;
+    color: #2f7481;
   }
 
   &__title {
+    color: #2f7481;
+    margin: 2rem 0rem;
     input {
       width: 100%;
       padding: 14px;
@@ -17,12 +20,55 @@
   }
 
   &__status {
+    color: #2f7481;
+    margin: 2rem 0rem;
     select {
       width: 100%;
       padding: 14px;
       background-color: #ddd;
       border: none;
       font-size: 1rem;
+      outline: none;
+    }
+  }
+
+  &__button {
+    margin: 0.6rem 0rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__add {
+      padding: 10px;
+      border: none;
+      background-color: #45b3c9;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.5s all ease-in-out;
+
+      &:hover {
+        background-color: #2f7481;
+        color: #333;
+      }
+    }
+
+    &__cancel {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      background-color: #f57070;
+      border-radius: 5px;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.5s all ease-in-out;
+
+      &:hover {
+        background-color: #e74e4e;
+        color: #fff;
+      }
     }
   }
 }
