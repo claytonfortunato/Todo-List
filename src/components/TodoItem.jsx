@@ -47,7 +47,7 @@ const TodoItem = () => {
         ))}
       </div>
       {todos.length > 0 && (
-        <div>
+        <div className="container__todoitem__deleteall">
           <button onClick={() => dispatch(deleteAll())}>Deletar Todos</button>
         </div>
       )}

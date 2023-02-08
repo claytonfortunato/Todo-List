@@ -38,4 +38,17 @@
       }
     }
   }
+  &__deleteall {
+    button {
+      width: 400px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fa2612dc;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s all ease-in-out;
+    }
+  }
 }
