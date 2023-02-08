@@ -1,4 +1,4 @@
-import TaskActionTypes from "./action-type";
+import { ADD_TODO, DELETE_ALL } from "./actions";
 
 const initialState = [
   { id: 1, todo: "Buy Laptop", completed: false },
@@ -6,14 +6,13 @@ const initialState = [
   { id: 3, todo: "Watering Plants", completed: true },
 ];
 
-const taskReducer = (state = initialState, action) => {
+export const operationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TaskActionTypes.ADD_TASK:
+    case ADD_TODO:
       return [...state, action.payload];
-
+    case DELETE_ALL:
+      return [];
     default:
       return state;
   }
 };
-
-export default taskReducer;

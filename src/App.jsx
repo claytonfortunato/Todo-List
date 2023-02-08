@@ -9,9 +9,6 @@ function App() {
       <h1 className="container__todo__title">Lista de Tarefas</h1>
       <Todo />
       <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
     </div>
   );
 }

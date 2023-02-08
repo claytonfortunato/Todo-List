@@ -2,31 +2,19 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 import TodoItem from "./TodoItem";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+
+import { addTodo } from "../redux/task/actions";
 
 import "./Todo.scss";
 import "./Modal.scss";
-import { addTaskToList } from "../redux/task/actions";
 
 const Todos = () => {
-  const { todos } = useSelector((rootReducer) => rootReducer.taskReducer);
   const dispatch = useDispatch();
 
-  const [todo, setTodo] = useState("");
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [todoValue, setTodoValue] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let date = new Date();
-    let time = date.getTime();
-    let todoObj = {
-      id: time,
-      todo: todo,
-      completed: false,
-    };
-    setTodoValue("");
-    dispatch(addTaskToList(todoObj));
-  };
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(!modalIsOpen);
@@ -42,13 +30,17 @@ const Todos = () => {
     },
   };
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  const handleTaskClick = () => {
-    dispatch(addTaskToList(TodoItem));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let date = new Date();
+    let time = date.getTime();
+    let todoObj = {
+      id: time,
+      todo: todoValue,
+      completed: false,
+    };
+    setTodoValue("");
+    dispatch(addTodo(todoObj));
   };
 
   return (
@@ -68,7 +60,6 @@ const Todos = () => {
         isOpen={modalIsOpen}
         onRequestClose={openModal}
         style={customStyles}
-        onAfterOpen={afterOpenModal}
       >
         <form className="container__modal" onSubmit={handleSubmit}>
           <h1>Adicionar Tarefa</h1>
@@ -76,8 +67,9 @@ const Todos = () => {
             <h4>Title</h4>
             <input
               type="text"
-              value={todo}
-              onChange={(e) => setTodo(e.target.value)}
+              value={todoValue}
+              onChange={(e) => setTodoValue(e.target.value)}
+              required
             />
           </div>
           <div className="container__modal__status">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { removeTaskFromList } from "../redux/task/actions";
+import { deleteAll } from "../redux/task/actions";
 
 import {
   MdModeEditOutline,
@@ -12,45 +12,38 @@ import {
 
 import "./TodoItem.scss";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = () => {
   const dispatch = useDispatch();
 
-  const [cheked, isCheked] = useState(false);
-
-  const handleRemoveClick = () => {
-    dispatch(removeTaskFromList(TodoItem.id));
-  };
-
+  const todos = useSelector((state) => state.operationsReducer);
   return (
     <div className="container__todoitem">
-      <div className="container__todoitem__task">
-        <div className="container__todoitem__task__list">
-          <div className="container__todoitem__task__list__check">
-            {/* {todo ? (
-              <MdCheckBoxOutlineBlank size={26} />
-            ) : (
-              <MdCheckBox size={26} />
-            )} */}
-            <input type="checkbox" />
+      {todos.map((todo) => (
+        <div className="container__todoitem__task">
+          <div key={todo.id} className="container__todoitem__task__list">
+            <div className="container__todoitem__task__list__check">
+              <input type="checkbox" checked={todo.completed}></input>
+            </div>
+            <div className="container__todoitem__task__list__tasks">
+              <p
+                style={
+                  todo.completed === true
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                {todo.todo}
+              </p>
+              <small>3:33 AM, 01/01/2023</small>
+            </div>
           </div>
-          <div className="container__todoitem__task__list__tasks">
-            <p
-            // style={
-            //   todo.completed === true
-            //     ? { textDecoration: "line-through" }
-            //     : { textDecoration: "none" }
-            // }
-            >
-              Estudar Javascript
-            </p>
-            <small>3:33 AM, 01/01/2023</small>
+          <div className="container__todoitem__task__list__icon">
+            <MdModeEditOutline />
+
+            <MdDelete color="red" onClick={() => dispatch(deleteAll())} />
           </div>
         </div>
-        <div className="container__todoitem__task__list__icon">
-          <MdDelete size={22} color="red" onClick={handleRemoveClick} />
-          <MdModeEditOutline size={22} />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
