@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { deleteAll } from "../redux/task/actions";
+import { deleteAll, removeTodo } from "../redux/task/actions";
 
 import {
   MdModeEditOutline,
@@ -40,7 +40,7 @@ const TodoItem = () => {
           <div className="container__todoitem__task__list__icon">
             <MdModeEditOutline />
 
-            <MdDelete color="red" onClick={() => dispatch(deleteAll())} />
+            <MdDelete color="red" onClick={() => dispatch(removeTodo())} />
           </div>
         </div>
       ))}
