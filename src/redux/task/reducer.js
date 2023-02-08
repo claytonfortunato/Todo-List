@@ -12,10 +12,9 @@ export const operationsReducer = (state = initialState, action) => {
       return [...state, action.payload];
 
     case REMOVE_TODO:
-      return {
-        ...state,
-        todo: state.todo.filter((task) => task.id !== task.payload),
-      };
+      const filteredTodos = state.filter((todo) => todo.id !== action.payload);
+      return filteredTodos;
+
     case DELETE_ALL:
       return [];
     default:

@@ -10,15 +10,16 @@ export const addTodo = (payload) => {
   };
 };
 
-export const removeTodo = () => {
+export const removeTodo = (payload) => {
   return {
     type: REMOVE_TODO,
     payload,
   };
 };
 
-export const deleteAll = () => {
+export const deleteAll = (payload) => {
   return {
     type: DELETE_ALL,
+    payload,
   };
 };

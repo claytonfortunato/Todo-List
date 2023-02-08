@@ -41,7 +41,10 @@ const TodoItem = () => {
             <div className="container__todoitem__task__list__icon">
               <MdModeEditOutline />
 
-              <MdDelete color="red" onClick={() => dispatch(removeTodo())} />
+              <MdDelete
+                color="red"
+                onClick={() => dispatch(removeTodo(todo.id))}
+              />
             </div>
           </div>
         ))}
