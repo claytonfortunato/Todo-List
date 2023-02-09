@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
 
 import { deleteAll, removeTodo } from "../redux/task/actions";
 
@@ -35,7 +36,7 @@ const TodoItem = () => {
                 >
                   {todo.todo}
                 </p>
-                <small>3:33 AM, 01/01/2023</small>
+                <small> {format(new Date(todo.time), "p, MM/dd/yyyy")}</small>
               </div>
             </div>
             <div className="container__todoitem__task__list__icon">

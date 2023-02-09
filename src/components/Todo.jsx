@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { v4 as uuid } from "uuid";
 
 import TodoItem from "./TodoItem";
 import { useDispatch } from "react-redux";
@@ -32,15 +33,17 @@ const Todos = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let date = new Date();
-    let time = date.getTime();
-    let todoObj = {
-      id: time,
-      todo: todoValue,
-      completed: false,
-    };
+    dispatch(
+      addTodo({
+        id: uuid(),
+        todo: todoValue,
+        completed: false,
+        time: new Date().toLocaleString(),
+      })
+    );
+
     setTodoValue("");
-    dispatch(addTodo(todoObj));
+    setIsOpen(false);
   };
 
   return (
