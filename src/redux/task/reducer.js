@@ -13,7 +13,6 @@ const initialState = [
     todo: "Buy Laptop",
     completed: false,
     time: new Date().toLocaleString(),
-    filterStatus: "all",
   },
   {
     id: 1,
@@ -49,6 +48,7 @@ export const operationsReducer = (state = initialState, action) => {
         updatedArray.push(item);
       });
       return updatedArray;
+
     case CHECKED:
       let todoArray = [];
       state.map((item) => {
@@ -60,10 +60,6 @@ export const operationsReducer = (state = initialState, action) => {
       return todoArray;
 
     case UPDATE_FILTER:
-      const filteredStatus = state.filter(
-        (todos) => todos.completed !== completed
-      );
-      return filteredStatus;
 
     default:
       return state;
