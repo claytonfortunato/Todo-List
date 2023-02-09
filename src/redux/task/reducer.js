@@ -1,4 +1,10 @@
-import { ADD_TODO, DELETE_ALL, REMOVE_TODO, CHECKED } from "./actions";
+import {
+  ADD_TODO,
+  DELETE_ALL,
+  REMOVE_TODO,
+  CHECKED,
+  UPDATE_TODO,
+} from "./actions";
 
 const initialState = [
   {
@@ -24,6 +30,18 @@ export const operationsReducer = (state = initialState, action) => {
 
     case DELETE_ALL:
       return [];
+    case UPDATE_TODO:
+      let data = action.payload;
+      const updatedArray = [];
+      state.map((item) => {
+        if (item.id === data.id) {
+          item.id = data.id;
+          item.todo = data.todo;
+          item.completed = data.completed;
+        }
+        updatedArray.push(item);
+      });
+      return updatedArray;
 
     case CHECKED:
       let todoArray = [];

@@ -31,3 +31,10 @@ export const handleCheckbox = (payload) => {
     payload,
   };
 };
+
+export const handleEditSubmit = (payload) => {
+  return {
+    type: UPDATE_TODO,
+    payload,
+  };
+};

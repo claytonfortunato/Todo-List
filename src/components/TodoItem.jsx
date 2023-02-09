@@ -2,21 +2,26 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
 
-import { deleteAll, removeTodo, handleCheckbox } from "../redux/task/actions";
-
 import {
-  MdModeEditOutline,
-  MdDelete,
-  MdCheckBoxOutlineBlank,
-  MdCheckBox,
-} from "react-icons/md";
+  deleteAll,
+  removeTodo,
+  handleCheckbox,
+  handleEditSubmit,
+} from "../redux/task/actions";
+
+import { MdModeEditOutline, MdDelete } from "react-icons/md";
 
 import "./TodoItem.scss";
 
 const TodoItem = () => {
+  const [updateModalOpen, setUpdateModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const todos = useSelector((state) => state.operationsReducer);
+
+  const handleUpdate = () => {
+    setUpdateModalOpen(true);
+  };
   return (
     <>
       <div className="container__todoitem">
@@ -44,7 +49,7 @@ const TodoItem = () => {
               </div>
             </div>
             <div className="container__todoitem__task__list__icon">
-              <MdModeEditOutline />
+              <MdModeEditOutline onClick={() => handleUpdate()} />
 
               <MdDelete
                 color="red"
