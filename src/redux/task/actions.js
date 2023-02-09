@@ -3,6 +3,7 @@ export const DELETE_ALL = "DELETE_ALL";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const CHECKED = "CHECKED";
+export const UPDATE_FILTER = "UPDATE_FILTER";
 
 export const addTodo = (payload) => {
   return {
@@ -35,6 +36,13 @@ export const handleCheckbox = (payload) => {
 export const handleEditSubmit = (payload) => {
   return {
     type: UPDATE_TODO,
+    payload,
+  };
+};
+
+export const handleFilter = (payload) => {
+  return {
+    type: UPDATE_FILTER,
     payload,
   };
 };

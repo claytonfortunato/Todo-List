@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { v4 as uuid } from "uuid";
 
-import TodoItem from "./TodoItem";
 import { useDispatch } from "react-redux";
 
 import { addTodo } from "../redux/task/actions";
@@ -10,16 +9,10 @@ import { addTodo } from "../redux/task/actions";
 import "./Todo.scss";
 import "./Modal.scss";
 
-const Todos = () => {
+const Todos = (props) => {
   const dispatch = useDispatch();
 
   const [todoValue, setTodoValue] = useState("");
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(!modalIsOpen);
-  };
 
   const customStyles = {
     content: {
@@ -48,20 +41,9 @@ const Todos = () => {
 
   return (
     <div className="container__todo">
-      <div className="container__todo__button">
-        <button className="container__todo__button__left" onClick={openModal}>
-          Adicionar Tarefa
-        </button>
-        <select className="container__todo__button__right">
-          <option value="All">All</option>
-          <option value="Incompleted">Incompleted</option>
-          <option value="Completed">Completed</option>
-        </select>
-      </div>
-
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={openModal}
+        isOpen={props.isOpen}
+        onRequestClose={props.onRequestClose}
         style={customStyles}
       >
         <form className="container__modal" onSubmit={handleSubmit}>
@@ -83,12 +65,16 @@ const Todos = () => {
             </select>
           </div>
           <div className="container__modal__button">
-            <button className="container__modal__button__add" type="submit">
+            <button
+              className="container__modal__button__add"
+              type="submit"
+              onClick={props.onClick}
+            >
               Adicionar
             </button>
             <button
               className="container__modal__button__cancel"
-              onClick={() => setIsOpen(false)}
+              onClick={props.onRequestClose}
             >
               Cancelar
             </button>

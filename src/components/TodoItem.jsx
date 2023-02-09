@@ -14,10 +14,10 @@ import { MdModeEditOutline, MdDelete } from "react-icons/md";
 import "./TodoItem.scss";
 
 const TodoItem = () => {
-  const [updateModalOpen, setUpdateModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const todos = useSelector((state) => state.operationsReducer);
+  console.log(todos);
 
   const handleUpdate = () => {
     setUpdateModalOpen(true);

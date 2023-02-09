@@ -4,6 +4,7 @@ import {
   REMOVE_TODO,
   CHECKED,
   UPDATE_TODO,
+  UPDATE_FILTER,
 } from "./actions";
 
 const initialState = [
@@ -12,9 +13,15 @@ const initialState = [
     todo: "Buy Laptop",
     completed: false,
     time: new Date().toLocaleString(),
+    filterStatus: "all",
   },
-  // { id: 2, todo: "Master Redux", completed: false },
-  // { id: 3, todo: "Watering Plants", completed: true },
+  {
+    id: 1,
+    todo: "Buy Laptop",
+    completed: true,
+    time: new Date().toLocaleString(),
+    filterStatus: "all",
+  },
 ];
 
 export const operationsReducer = (state = initialState, action) => {
@@ -42,7 +49,6 @@ export const operationsReducer = (state = initialState, action) => {
         updatedArray.push(item);
       });
       return updatedArray;
-
     case CHECKED:
       let todoArray = [];
       state.map((item) => {
@@ -52,6 +58,13 @@ export const operationsReducer = (state = initialState, action) => {
         todoArray.push(item);
       });
       return todoArray;
+
+    case UPDATE_FILTER:
+      const filteredStatus = state.filter(
+        (todos) => todos.completed !== completed
+      );
+      return filteredStatus;
+
     default:
       return state;
   }
