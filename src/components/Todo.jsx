@@ -86,7 +86,10 @@ const Todos = () => {
             <button className="container__modal__button__add" type="submit">
               Adicionar
             </button>
-            <button className="container__modal__button__cancel">
+            <button
+              className="container__modal__button__cancel"
+              onClick={() => setIsOpen(false)}
+            >
               Cancelar
             </button>
           </div>

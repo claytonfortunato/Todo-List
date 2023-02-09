@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
 
-import { deleteAll, removeTodo } from "../redux/task/actions";
+import { deleteAll, removeTodo, handleCheckbox } from "../redux/task/actions";
 
 import {
   MdModeEditOutline,
@@ -24,7 +24,11 @@ const TodoItem = () => {
           <div className="container__todoitem__task">
             <div key={todo.id} className="container__todoitem__task__list">
               <div className="container__todoitem__task__list__check">
-                <input type="checkbox" checked={todo.completed}></input>
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => dispatch(handleCheckbox(todo.id))}
+                ></input>
               </div>
               <div className="container__todoitem__task__list__tasks">
                 <p
