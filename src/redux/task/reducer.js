@@ -19,7 +19,6 @@ const initialState = [
     todo: "Buy Laptop",
     completed: true,
     time: new Date().toLocaleString(),
-    filterStatus: "all",
   },
 ];
 
@@ -60,6 +59,17 @@ export const operationsReducer = (state = initialState, action) => {
       return todoArray;
 
     case UPDATE_FILTER:
+      (state, action) => {
+        state.todo.map((item) => {
+          if (action.payload === item.id) {
+            if (item.completed === true) {
+              item.todo = false;
+            } else {
+              item.todo = true;
+            }
+          }
+        });
+      };
 
     default:
       return state;

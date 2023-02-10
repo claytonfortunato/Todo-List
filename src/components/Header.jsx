@@ -8,9 +8,13 @@ import "./Todo.scss";
 import { handleFilter } from "../redux/task/actions";
 
 const Header = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState("Completed");
 
   const dispatch = useDispatch();
+
+  const updateFilter = (e) => {
+    dispatch(handleFilter(e.target.value));
+  };
 
   return (
     <div className="container__todo">
@@ -21,7 +25,7 @@ const Header = () => {
         >
           Adicionar Tarefa
         </button>
-        <select className="container__todo__button__right">
+        <select className="container__todo__button__right" id="status">
           <option value="All">All</option>
           <option value="Incompleted">Incompleted</option>
           <option value="Completed">Completed</option>

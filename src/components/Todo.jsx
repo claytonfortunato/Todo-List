@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 
 import { addTodo } from "../redux/task/actions";
 
+import { handleFilter } from "../redux/task/actions";
+
 import "./Todo.scss";
 import "./Modal.scss";
 
@@ -13,6 +15,11 @@ const Todos = (props) => {
   const dispatch = useDispatch();
 
   const [todoValue, setTodoValue] = useState("");
+  const [status, setStatus] = useState(false);
+
+  const updateFilter = (e) => {
+    dispatch(handleFilter(e.target.value));
+  };
 
   const customStyles = {
     content: {
@@ -22,6 +29,15 @@ const Todos = (props) => {
       transition: "500ms",
       maxWidth: "500px",
     },
+  };
+
+  const statusFilter = (filter) => {
+    if (filter === "Incompleted") {
+      return status.filter((todo) => todo.completed === false);
+    }
+    if (filter === "completed") {
+      return status.filter((todo) => todo.completed === true);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -59,9 +75,17 @@ const Todos = (props) => {
           </div>
           <div className="container__modal__status">
             <h4>Status</h4>
-            <select>
-              <option value="Incompleted">Incompleto</option>
-              <option value="completed">Completo</option>
+            <select
+              id="type"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <option value="Incompleted" onClick={() => setStatus(false)}>
+                Incompleto
+              </option>
+              <option value="completed" onClick={() => setStatus(true)}>
+                Completo
+              </option>
             </select>
           </div>
           <div className="container__modal__button">
