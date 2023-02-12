@@ -15,7 +15,7 @@ const Todos = (props) => {
   const dispatch = useDispatch();
 
   const [todoValue, setTodoValue] = useState("");
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState();
 
   const updateFilter = (e) => {
     dispatch(handleFilter(e.target.value));
