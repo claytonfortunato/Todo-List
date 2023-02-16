@@ -21,9 +21,8 @@ const todos = (state = initialState, action) => {
       return { todos };
     }
 
-    default: {
+    default:
       return state;
-    }
   }
 };
 

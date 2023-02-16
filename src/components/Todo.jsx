@@ -1,3 +1,4 @@
+import { Box, Checkbox, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleTodo } from "../redux/actions";
@@ -13,10 +14,10 @@ export const Todo = ({ todo }) => {
   }, [todo]);
 
   return (
-    <div>
-      <input type="checkbox" onChange={handleCheked} isChecked={cheked}>
-        <p as={todo.completed && "del"}>{todo.content}</p>
-      </input>
-    </div>
+    <Box mb={2} bgColor="lightcoral" p={2}>
+      <Checkbox onChange={handleCheked} colorScheme="teal" isChecked={cheked}>
+        <Text as={todo.completed && "del"}>{todo.content}</Text>
+      </Checkbox>
+    </Box>
   );
 };
