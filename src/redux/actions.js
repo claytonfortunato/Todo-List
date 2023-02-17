@@ -4,6 +4,7 @@ import {
   SET_FILTER,
   DELETE_ALL,
   DELETE_TODO,
+  UPDATE_TODO,
 } from "./actionsTypes";
 
 let nextTodoId = 0;
@@ -33,5 +34,10 @@ export const deleteAll = () => {
 
 export const deleteTodo = (payload) => ({
   type: DELETE_TODO,
+  payload,
+});
+
+export const handleEdit = (payload) => ({
+  type: UPDATE_TODO,
   payload,
 });

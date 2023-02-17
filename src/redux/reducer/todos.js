@@ -3,6 +3,7 @@ import {
   TOGGLE_TODO,
   DELETE_ALL,
   DELETE_TODO,
+  UPDATE_TODO,
 } from "../actionsTypes";
 
 const initialState = {
@@ -25,6 +26,19 @@ const todos = (state = initialState, action) => {
       );
       return { todos };
     }
+
+    case UPDATE_TODO:
+      let data = action.payload;
+      const updatedArray = [];
+      state.map((item) => {
+        if (item.id === data.id) {
+          item.id = data.id;
+          item.content = data.content;
+          item.completed = data.completed;
+        }
+        updatedArray.push(item);
+      });
+      return updatedArray;
 
     case DELETE_TODO:
       return {
