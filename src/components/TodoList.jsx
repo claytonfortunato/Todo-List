@@ -13,7 +13,7 @@ export const TodoList = () => {
         filterTodos.map((todo) => <Todo key={`todo-${todo.id}`} todo={todo} />)
       ) : (
         <Box textAlign="center" my="4">
-          Nenhuma tarefa
+          Nenhuma tarefa adicionada
         </Box>
       )}
     </Box>

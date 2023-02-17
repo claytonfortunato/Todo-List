@@ -1,4 +1,4 @@
-import { Container, Tab, TabList, Tabs, Select } from "@chakra-ui/react";
+import { Container, Tab, TabList, Tabs } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { VISIBILITY_FILTER } from "../constant";
 import { setFilter } from "../redux/actions";

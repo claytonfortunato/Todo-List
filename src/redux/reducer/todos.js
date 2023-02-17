@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionsTypes";
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  DELETE_ALL,
+  DELETE_TODO,
+} from "../actionsTypes";
 
 const initialState = {
   todos: [],
@@ -20,6 +25,17 @@ const todos = (state = initialState, action) => {
       );
       return { todos };
     }
+
+    case DELETE_TODO:
+      return {
+        ...state,
+        todo: state.todos.filter((task) => task.id !== action.payload),
+      };
+
+    case DELETE_ALL:
+      return {
+        todos: [],
+      };
 
     default:
       return state;
