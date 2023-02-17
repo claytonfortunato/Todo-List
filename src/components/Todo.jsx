@@ -2,7 +2,7 @@ import { Box, Checkbox, Text, Button, Flex } from "@chakra-ui/react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleTodo } from "../redux/actions";
+import { toggleTodo, deleteTodo } from "../redux/actions";
 import { format } from "date-fns";
 
 export const Todo = ({ todo }) => {
@@ -27,9 +27,9 @@ export const Todo = ({ todo }) => {
         <Text as={todo.completed && "del"}>{todo.content}</Text>
         {/* <Text>{format(new Date(todo), "p, MM/dd/yyyy")}</Text> */}
       </Checkbox>
-      <Box>
-        <DeleteIcon />
-      </Box>
+      <Button>
+        <DeleteIcon onClick={() => dispatch(deleteTodo(todo.id))} />
+      </Button>
     </Box>
   );
 };

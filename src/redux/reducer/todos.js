@@ -27,10 +27,8 @@ const todos = (state = initialState, action) => {
     }
 
     case DELETE_TODO:
-      return {
-        ...state,
-        todo: state.todos.filter((task) => task.id !== action.payload),
-      };
+      const filteredTodos = state.filter((todo) => todo.id !== action.payload);
+      return filteredTodos;
 
     case DELETE_ALL:
       return {

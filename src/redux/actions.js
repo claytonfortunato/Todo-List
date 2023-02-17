@@ -31,7 +31,7 @@ export const deleteAll = () => {
   };
 };
 
-export const deleteTodo = () => {
-  type: DELETE_TODO, 
-  payload: {id},
-}
+export const deleteTodo = (payload) => ({
+  type: DELETE_TODO,
+  payload,
+});
