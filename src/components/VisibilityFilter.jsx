@@ -1,6 +1,6 @@
 import { Container, Tab, TabList, Tabs } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { VISIBILITY_FILTER } from "../constant";
+import { VISIBILITY_FILTER } from "../Filter";
 import { setFilter } from "../redux/actions";
 
 export const VisibilityFilter = () => {

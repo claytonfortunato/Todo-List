@@ -1,5 +1,5 @@
 import { SET_FILTER } from "../actionsTypes";
-import { VISIBILITY_FILTER } from "../../constant";
+import { VISIBILITY_FILTER } from "../../Filter";
 
 const initialState = VISIBILITY_FILTER.ALL;
 
