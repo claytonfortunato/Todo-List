@@ -1,13 +1,10 @@
 import { Box, Button } from "@chakra-ui/react";
 
 import { deleteAll } from "../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const DeleteButton = () => {
   const dispatch = useDispatch();
-
-  const todo = useSelector((state) => state.todos);
-  console.log(todo);
 
   return (
     <Box>
