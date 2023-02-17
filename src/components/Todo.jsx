@@ -10,6 +10,7 @@ export const Todo = ({ todo }) => {
   const [cheked, setCheked] = useState(false);
 
   const handleCheked = () => dispatch(toggleTodo(todo.id));
+  const handleDeleteTodo = () => dispatch(deleteTodo(todo.id));
 
   useEffect(() => {
     setCheked(todo.completed);
@@ -27,8 +28,8 @@ export const Todo = ({ todo }) => {
         <Text as={todo.completed && "del"}>{todo.content}</Text>
         {/* <Text>{format(new Date(todo), "p, MM/dd/yyyy")}</Text> */}
       </Checkbox>
-      <Button>
-        <DeleteIcon onClick={() => dispatch(deleteTodo(todo.id))} />
+      <Button onClick={handleDeleteTodo} p="2" bgColor="lightcoral">
+        <DeleteIcon />
       </Button>
     </Box>
   );
