@@ -23,7 +23,7 @@ export const AddTodo = () => {
     <form onSubmit={handleSubmit}>
       <Flex m={4}>
         <FormControl>
-          <Input type="text" value={value} onChange={handleInput} />
+          <Input type="text" value={value} onChange={handleInput} bg="#fff" />
         </FormControl>
         <Button colorScheme="teal" type="submit" ml={4}>
           Adicionar

@@ -7,7 +7,12 @@ import { DeleteButton } from "./components/DeleteButton";
 function App() {
   return (
     <Container>
-      <Heading my="4" textAlign="center">
+      <Heading
+        my="6"
+        textAlign="center"
+        fontSize="2rem"
+        textTransform="uppercase"
+      >
         Lista de Tarefas
       </Heading>
       <VisibilityFilter />
